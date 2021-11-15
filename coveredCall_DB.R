@@ -74,7 +74,7 @@ coveredCallStrat = function(expiry_dates, symbol, strikesAboveATM){
   #                         as.numeric(ops$call_premium)+ops$stk2strike)
   ops$netPremium = ifelse(ops$stk2strike>0, 
                           (as.numeric(ops$strike)-as.numeric(ops$open_stkPrc))+as.numeric(ops$call_premium), 
-                          as.numeric(ops$call_premium)+ops$stk2strike)
+                          (as.numeric(ops$strike)-as.numeric(ops$open_stkPrc))+as.numeric(ops$call_premium)+ops$stk2strike)
   # caluculate returns
   ops$ccRet = round(ops$netPremium/ops$open_stkPrc,4)
   ops$stkRet = round(ops$prcAtexp/ops$open_stkPrc-1,4)
